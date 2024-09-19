@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 };
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'auto'
-})
+  subsets: ["latin"],
+  display: "auto",
+});
 
 export default function RootLayout({
   children,
@@ -21,12 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased`}
-      >
-        <div className="flex gap-8 h-full">
+      <body className={`${inter.className} antialiased`}>
+        <div className="flex h-full">
           <Sidebar />
-        {children}
+          {children}
         </div>
       </body>
     </html>
