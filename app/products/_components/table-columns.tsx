@@ -1,13 +1,10 @@
 "use client";
 
 import { Badge } from "@/app/_components/ui/badge";
-import { Product as PrismaProduct } from "@prisma/client";
+import { Product } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { CircleIcon } from "lucide-react";
 
-interface Product extends PrismaProduct {
-  status: string;
-}
 const getStatusLabel = (status: string) => {
   if (status === "IN_STOCK") {
     return "Em estoque";
