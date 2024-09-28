@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 declare global {
-  var cachedPrisma: ReturnType<typeof createPrismaClient>;
+  var cachedPrisma: ReturnType<typeof createPrismaClient> | undefined;
 }
 
 const createPrismaClient = () => {
@@ -28,7 +28,7 @@ let prisma: ReturnType<typeof createPrismaClient>;
 if (process.env.NODE_ENV === "development") {
   prisma = createPrismaClient();
 } else {
-  if (global.cachedPrisma) {
+  if (!global.cachedPrisma) {
     global.cachedPrisma = createPrismaClient();
   }
 

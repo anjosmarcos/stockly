@@ -1,7 +1,6 @@
 import { PlusIcon } from "lucide-react";
 import { Button } from "../_components/ui/button";
-import { DataTable } from "../_components/ui/dataTable";
-import { productsTableColumns } from "./_components/table-columns";
+import ProductList from "./_components/product-list";
 
 const ProductsPage = async () => {
   // chamar banco de dados
@@ -11,7 +10,9 @@ const ProductsPage = async () => {
   // const products = await getProducts();
 
   // Usando Route Handlers
-  const response = await fetch("http://localhost:3000/api/products");
+  const response = await fetch("http://localhost:3000/api/products", {
+    // cache: "no-cache",
+  });
   const products = await response.json();
 
   return (
@@ -29,7 +30,9 @@ const ProductsPage = async () => {
         </Button>
       </div>
 
-      <DataTable columns={productsTableColumns} data={products} />
+      <ProductList />
+      <p>{products}</p>
+      {/* <DataTable columns={productsTableColumns} data={products} /> */}
     </div>
   );
 };
