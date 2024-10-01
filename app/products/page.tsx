@@ -1,19 +1,21 @@
 import { PlusIcon } from "lucide-react";
 import { Button } from "../_components/ui/button";
-import ProductList from "./_components/product-list";
+import { DataTable } from "../_components/ui/dataTable";
+import { getProducts } from "../_data-access/get-products";
+import { productsTableColumns } from "./_components/table-columns";
 
 const ProductsPage = async () => {
   // chamar banco de dados
-  //const products = await db.product.findMany();
+  // const products = await db.product.findMany();
 
   // Usando DLA
-  // const products = await getProducts();
+  const products = await getProducts();
 
   // Usando Route Handlers
-  const response = await fetch("http://localhost:3000/api/products", {
-    // cache: "no-cache",
-  });
-  const products = await response.json();
+  // const response = await fetch("http://localhost:3000/api/products", {
+  //   // cache: "no-cache",
+  // });
+  // const products = await response.json();
 
   return (
     <div className="m-8 w-full space-y-8 rounded-lg bg-white p-8">
@@ -30,9 +32,12 @@ const ProductsPage = async () => {
         </Button>
       </div>
 
-      <ProductList />
-      <p>{products}</p>
-      {/* <DataTable columns={productsTableColumns} data={products} /> */}
+      {/* <ProductList /> */}
+      {/* <p>{products}</p> */}
+      <DataTable
+        columns={productsTableColumns}
+        data={JSON.parse(JSON.stringify(products))}
+      />
     </div>
   );
 };
