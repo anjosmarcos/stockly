@@ -1,5 +1,5 @@
 import { DataTable } from "../_components/ui/dataTable";
-import { getProducts } from "../_data-access/get-products";
+import { cacheGetProducts } from "../_data-access/get-products";
 import AddProductButton from "./_components/create-products-button";
 import { productsTableColumns } from "./_components/table-columns";
 
@@ -7,8 +7,8 @@ const ProductsPage = async () => {
   // chamar banco de dados
   // const products = await db.product.findMany();
 
-  // Usando DLA
-  const products = await getProducts();
+  // Usando cache
+  const products = await cacheGetProducts();
 
   // Usando Route Handlers
   // const response = await fetch("http://localhost:3000/api/products", {
