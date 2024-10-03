@@ -1,20 +1,10 @@
 import { DataTable } from "../_components/ui/dataTable";
 import { cacheGetProducts } from "../_data-access/get-products";
-import AddProductButton from "./_components/create-products-button";
+import CreatedProductButton from "./_components/create-products-button";
 import { productsTableColumns } from "./_components/table-columns";
 
 const ProductsPage = async () => {
-  // chamar banco de dados
-  // const products = await db.product.findMany();
-
-  // Usando cache
   const products = await cacheGetProducts();
-
-  // Usando Route Handlers
-  // const response = await fetch("http://localhost:3000/api/products", {
-  //   // cache: "no-cache",
-  // });
-  // const products = await response.json();
 
   return (
     <div className="m-8 w-full space-y-8 rounded-lg bg-white p-8">
@@ -25,7 +15,7 @@ const ProductsPage = async () => {
           </span>
           <h2 className="text-2xl font-semibold">Produtos</h2>
         </div>{" "}
-        <AddProductButton />
+        <CreatedProductButton />
       </div>
 
       <DataTable

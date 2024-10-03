@@ -31,7 +31,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { NumericFormat } from "react-number-format";
 
-const AddProductButton = () => {
+const CreatedProductButton = () => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const form = useForm<CreateProductSchema>({
     shouldUnregister: true,
@@ -154,4 +154,4 @@ const AddProductButton = () => {
   );
 };
 
-export default AddProductButton;
+export default CreatedProductButton;
