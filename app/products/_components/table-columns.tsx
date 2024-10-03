@@ -15,10 +15,6 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import DeleteProductDialogContent from "@/app/products/_components/delete-dialog-content";
 import { Product as PrismaProduct } from "@prisma/client";
-
-interface Product extends PrismaProduct {
-  status: string;
-}
 import { DropdownMenu } from "@radix-ui/react-dropdown-menu";
 import { ColumnDef } from "@tanstack/react-table";
 import {
@@ -28,6 +24,10 @@ import {
   MoreHorizontalIcon,
   Trash2Icon,
 } from "lucide-react";
+
+interface Product extends PrismaProduct {
+  status: string;
+}
 
 const getStatusLabel = (status: string) => {
   if (status === "IN_STOCK") {
@@ -95,6 +95,7 @@ export const productsTableColumns: ColumnDef<Product>[] = [
                 />
                 Copiar ID
               </DropdownMenuItem>
+
               <DropdownMenuItem className="gap-1">
                 <Edit2Icon size={16} />
                 Editar
