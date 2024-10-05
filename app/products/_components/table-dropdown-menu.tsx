@@ -50,7 +50,7 @@ const ProductTableDropdownMenu = ({
               <ClipboardCopyIcon
                 size={16}
                 className="1.5"
-                onClick={() => navigator.clipboard.writeText(product.id)}
+                onClick={() => navigator.clipboard.writeText(product.name)}
               />
               Copiar ID
             </DropdownMenuItem>
